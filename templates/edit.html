@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Home</title>
+    <link href="{% static 'css/style.css' %}" rel='stylesheet'>
+</head>
+<body>
+    <h1>this is a home page</h1>
+    <form method='POST' action="{% url 'edit' id=data.id %}" accept=''>
+        {% csrf_token %}
+        USERNAME<input type='text' name='username' value="{{data.username}}"><br><br>
+        PASSWORD<input type='text' name='password' value="{{data.password}}"><br><br>
+        <input type='submit' value='send'>
+        <button><a href="{% url 'about' %}">Next page</a></button>
+    </form>
+</body>
+</html>
